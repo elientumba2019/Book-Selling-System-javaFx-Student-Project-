@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<VBox fx:id="mainBox" prefHeight="674.0" prefWidth="1028.0" spacing="20" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Controller.ManagementSystem2Storage_managementController">
+
+
+    <!-- Menu bar for the system -->
+    <MenuBar fx:id="menuBar" prefWidth="30">
+        <Menu fx:id="systemMenu" text="System">
+            <MenuItem fx:id="bookSelling" text="Book Selling Management" onAction="#processSystemMenu"/>
+            <MenuItem fx:id="storage" text="Storage Management" onAction="#processSystemMenu"/>
+            <MenuItem fx:id="bookManagement" text="Book Management" onAction="#processSystemMenu"/>
+            <MenuItem fx:id="categoryManagement" text="Category Management" onAction="#processSystemMenu"/>
+            <MenuItem fx:id="publisherManagement" text="Publisher Management" onAction="#processSystemMenu"/>
+            <MenuItem fx:id="logout" text="Log out" onAction="#onClickLogOut"/>
+        </Menu>
+    </MenuBar>
+
+        <children>
+
+            <!-- uper search bar -->
+            <HBox alignment="TOP_CENTER" spacing="20">
+                <children>
+                    <!-- upper side label -->
+                    <Label fx:id="dateLabel" text="Date : " />
+                    <!-- uppe side text field -->
+                    <TextField fx:id="searchTextField" prefWidth="300" />
+                    <!-- upper side button-->
+                    <Button fx:id="searchButton" onAction="#onClickSearch" text="Search" />
+                </children>
+            </HBox>
+
+
+
+            <!-- middle table view -->
+            <TableView fx:id="middleTable" prefHeight="300.0" prefWidth="1010.0">
+                <columns>
+                    <!-- columns 1 -->
+                    <TableColumn fx:id="bookPutInStorage" prefWidth="523.0000152587891" text="Book put In Storage" />
+                    <!-- columns 2-->
+                    <TableColumn fx:id="dateputInStorage" prefWidth="275.0" text="Date" />
+                    <!-- columns 3 -->
+                    <TableColumn fx:id="quantityInStorage" prefWidth="228.0" text="Quantity in Storage" />
+                </columns>
+            </TableView>
+        </children>
+
+
+
+
+    <!-- below the middle -->
+    <HBox alignment="CENTER" spacing="10">
+        <children>
+            <!-- first element -->
+            <Label fx:id="datePutInStorage2Label" text="Date  : " />
+            <TextField fx:id="datePutInStorage2" editable="false" prefWidth="300" />
+
+            <!-- second element -->
+            <Label fx:id="totalQuantityLabel" text="Total Quantity : " />
+            <TextField fx:id="totalQuantity" editable="false" prefWidth="300" />
+        </children>
+    </HBox>
+
+
+
+    <!-- second table view containbookModelbook name informations -->
+    <TableView fx:id="bookTable" prefHeight="150">
+        <columns>
+            <!-- columns 1-->
+            <TableColumn fx:id="bookName" prefWidth="368.00001525878906" text="Book Name" />
+            <!-- second Columns -->
+            <TableColumn fx:id="bookPriceSingle" prefWidth="256.0" text="Price(Single)" />
+            <!-- third columns -->
+            <TableColumn fx:id="numberTotal" prefWidth="403.0" text="Quantity" />
+        </columns>
+    </TableView>
+
+
+
+    <!-- hbox containing -->
+    <HBox alignment="CENTER" spacing="25">
+        <children>
+
+            <!-- -->
+            <Label fx:id="bookDownLabel" text="Book : " />
+            <!-- combo bookModelbook -->
+            <ComboBox fx:id="bookComboBox">
+                <!-- will be filler later -->
+            </ComboBox>
+            <!-- Quantity -->
+            <Label fx:id="quantityLabelDown" text="Quantity : " />
+            <TextField fx:id="quantityField" />
+            <!-- actual quantity -->
+            <Label fx:id="actualQuantityLabel" text="Actual Quantity" />
+            <Label fx:id="actualQuantityChanginLabel" text="0" />
+            <!-- add Button -->
+            <Button fx:id="addButton" onAction="#onClickAdd" text="Add" />
+            <!-- delete button -->
+            <Button fx:id="deleteButton" onAction="#onClickDelete" text="Delete" />
+        </children>
+    </HBox>
+
+
+
+
+    <!-- lowest level contianing the last 2 buttons -->
+    <HBox alignment="CENTER" spacing="100">
+        <children>
+            <!-- buy submit button -->
+            <Button fx:id="addInStorageButton" onAction="#onClickAddInStorage" text="Add in Storage" />
+            <!-- clear Button -->
+            <Button fx:id="clearButton" onAction="#onClickClear" text="Clear" />
+        </children>
+    </HBox>
+   <padding>
+      <Insets bottom="10.0" left="15.0" right="15.0" top="30.0" />
+   </padding>
+
+</VBox>

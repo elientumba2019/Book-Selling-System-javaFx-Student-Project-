@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.StackPane?>
+<VBox fx:id="mainBox" prefHeight="674.0" prefWidth="1028.0" spacing="20" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Controller.ManagementSystem3Book_managementController">
+
+    <!-- main children tag -->
+    <children>
+
+        <!-- Menu bar for the system -->
+        <MenuBar fx:id="menuBar" prefWidth="30">
+            <Menu fx:id="systemMenu" text="System">
+                <MenuItem fx:id="bookSelling" text="Book Selling Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="storage" text="Storage Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="bookManagement" text="Book Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="categoryManagement" text="Category Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="publisherManagement" text="Publisher Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="logout" text="Log out" onAction="#onClickLogOut"/>
+            </Menu>
+        </MenuBar>
+        
+
+        <!-- uper search bar -->
+        <HBox alignment="TOP_CENTER" spacing="20">
+            <children>
+                <!-- upper side label -->
+                <Label fx:id="bookNameLabel" text="Book Name : " />
+                <!-- uppe side text field -->
+                <TextField fx:id="searchTextField" prefWidth="300" />
+                <!-- upper side button-->
+                <Button fx:id="searchButton" onAction="#onClickSearch" text="Search" />
+            </children>
+        </HBox>
+
+
+
+
+
+        <!-- middle table view -->
+        <TableView fx:id="detailTableView" prefHeight="300.0" prefWidth="1010.0">
+            <columns>
+                <!-- columns 1 -->
+                <TableColumn fx:id="bookName" prefWidth="113.00001525878906" text="Book Name" />
+                <!-- columns 1 -->
+                <TableColumn fx:id="description" prefWidth="272.0" text="Description" />
+                <!-- columns 3 -->
+                <TableColumn fx:id="authorColumn" prefWidth="141.0" text="Author" />
+                <!-- columns 4 -->
+                <TableColumn fx:id="categoryCol" prefWidth="110.0" text="Category" />
+                <!-- columns 5 -->
+                <TableColumn fx:id="publishingHouse" prefWidth="156.0" text="Publishing House" />
+                <!-- column 6 -->
+                <TableColumn fx:id="inStock" prefWidth="89.0" text="In Stock" />
+                <!-- column 7 -->
+                <TableColumn fx:id="price" prefWidth="144.0" text="Price" />
+            </columns>
+        </TableView>
+
+
+
+
+        <!-- botton HBox -->
+        <HBox fx:id="downBox">
+
+            <!-- inner Vbox that will contain 4 Hbox -->
+            <VBox spacing="5">
+
+                <!-- first HBox -->
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <children>
+                        <!-- name label  and field -->
+                        <Label fx:id="bookNameLabel2" text="Book Name : " />
+                        <TextField fx:id="bookNameField" />
+                        <!--bookModelbook price and field input -->
+                        <Label fx:id="bookPriceLabel" text="Price : " />
+                        <TextField fx:id="bookPrice" />
+                        <!-- author label and field -->
+                        <Label fx:id="authorLabel" text="Author : " />
+                        <TextField fx:id="author" />
+                    </children>
+                </HBox>
+
+
+
+                <!-- second Hbox -->
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <children>
+                        <!-- category combo box -->
+                        <Label fx:id="categoryLabel" text="Category : " />
+                        <ComboBox fx:id="categoryComboBox"  /> <!-- temporary valye -->
+                        <!-- publishing house combo box -->
+                        <Label fx:id="publishingIdLabel" text="Publishing House : " />
+                        <ComboBox fx:id="publishingHouseComboBox" value="MIT" />   <!-- temporary value -->
+                        <!-- bookModelbook cover label and input -->
+                        <Label fx:id="bookCoverLabe" text="Book Cover : " />
+                        <Button fx:id="chooseFile" onAction="#onClickChooseFile" text="Please choose a file : " />
+
+                    </children>
+                </HBox>
+
+
+
+                <!-- third Hbox -->
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <children>
+                        <!-- label and description area -->
+                        <Label fx:id="bookDescription" text="Book Description : " />
+                        <ScrollPane prefHeight="150" prefWidth="599">
+                        <TextArea fx:id="bookDescriptionArea" prefColumnCount="300" prefRowCount="30" />
+                        </ScrollPane>
+                    </children>
+                </HBox>
+
+                <!-- fourth HBox -->
+                <HBox alignment="CENTER" spacing="30">
+                    <!-- save Button -->
+                    <Button fx:id="saveButton" onAction="#onClickSave" text="Save" />
+                    <Button fx:id="clear" onAction="#onClickClear" text="Clear" />
+                    <Button fx:id="updateButton" onAction="#onClickUpdate" text="Update"/>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+                </HBox>
+
+            </VBox>
+
+            <StackPane>
+                <children>
+                    <ImageView fx:id="bookCoverImage" fitHeight="150" fitWidth="120"/>
+                </children>
+            </StackPane>
+
+        </HBox>
+    </children>
+   <padding>
+      <Insets bottom="10.0" left="15.0" right="15.0" top="30.0" />
+   </padding>
+
+</VBox>

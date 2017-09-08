@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<VBox fx:id="mainBox" prefHeight="674.0" prefWidth="1028.0" spacing="20" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Controller.ManagementSystem1Book_SellingController">
+
+    <!-- main Childern layout -->
+    <children>
+
+        <!-- Menu bar for the system -->
+        <MenuBar fx:id="menuBar" prefWidth="30">
+            <Menu fx:id="systemMenu" text="System">
+                <MenuItem fx:id="bookSelling" text="Book Selling Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="storage" text="Storage Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="bookManagement" text="Book Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="categoryManagement" text="Category Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="publisherManagement" text="Publisher Management" onAction="#processSystemMenu"/>
+                <MenuItem fx:id="logout" text="Log out" onAction="#onClickLogOut"/>
+            </Menu>
+        </MenuBar>
+
+
+        <HBox alignment="TOP_CENTER" spacing="20">
+            <children>
+                <!-- upper side label -->
+                <Label fx:id="dateLabel" text="Date : " />
+                <!-- uppe side text field -->
+                <TextField fx:id="searchTextField" prefWidth="300" />
+                <!-- upper side button-->
+                <Button fx:id="searchButton" onAction="#onClickSearch" text="Search" />
+            </children>
+        </HBox>
+
+
+        <!-- central TaMVC.ViewView-->
+        <!--<ScrollPane prefHeight="250.0" prefWidth="913.0"> !-->
+        <TableView fx:id="contentTable" prefHeight="300" prefWidth="1010.0">
+         <columns>
+             <!-- columns 1-->
+            <TableColumn fx:id="bookPurchased" prefWidth="387.0" text="Purchased Books" />
+             <!-- columns 2-->
+            <TableColumn fx:id="bookPrice" prefWidth="183.0" text="Price" />
+             <!-- columns 3-->
+            <TableColumn fx:id="bookDate" prefWidth="149.0" text="Date" />
+             <!-- columns 4-->
+            <TableColumn fx:id="bookNumber" prefWidth="289.0" text="Total Quantity" />
+         </columns>
+        </TableView>
+        <!--</ScrollPane> -->
+
+
+        <!-- below the central -->
+        <HBox alignment="CENTER" spacing="10">
+            <children>
+                <!-- first element -->
+                <Label fx:id="totalPriceLabel" text="Total price : " />
+                <TextField fx:id="totalPriceField" editable="false" />
+
+                <!-- second element -->
+                <Label fx:id="transactionDatelabe" text="Transaction Date : " />
+                <TextField fx:id="transactionDateField" editable="false" />
+
+                <!-- third element -->
+                <Label fx:id="totalNumberLabel" text="Total Number : " />
+                <TextField fx:id="totalNumberField" editable="false" />
+            </children>
+        </HBox>
+
+
+
+        <!-- second table view containbookModelbook name informations -->
+        <TableView fx:id="bookTable" prefHeight="150">
+            <columns>
+                <!-- columns 1-->
+                <TableColumn fx:id="bookName" prefWidth="368.00001525878906" text="Book Name" />
+                <!-- second Columns -->
+                <TableColumn fx:id="bookPriceSingle" prefWidth="256.0" text="Price(Single)" />
+                <!-- third columns -->
+                <TableColumn fx:id="numberTotal" prefWidth="403.0" text="Quantity" />
+            </columns>
+        </TableView>
+
+
+
+        <!-- hbox containing -->
+        <HBox alignment="CENTER" spacing="25">
+            <children>
+
+                <!-- -->
+                <Label fx:id="bookDownLabel" text="Book : " />
+                <!-- combo bookModelbook -->
+                <ComboBox fx:id="bookComboBox">
+                <!-- will be filler later -->
+                </ComboBox>
+                <!-- Quantity -->
+                <Label fx:id="quantityLabelDown" text="Quantity : " />
+                <TextField fx:id="quantityField" />
+                <!-- single price -->
+                <Label fx:id="priceSignleLabel" text="Price(Single) : " />
+                <Label fx:id="priceSingleChangingLabel" text="0" />
+                <!-- in stock -->
+                <Label fx:id="inStocLabel" text="In Stock : " />
+                <Label fx:id="inStockChangingLabel" text="0" />
+                <!-- add Button -->
+                <Button fx:id="addButton" text="Add"  onAction="#onClickAdd"/>
+                <!-- delete button -->
+                <Button fx:id="deleteButton" text="Delete" onAction="#onClickDelete"/>
+            </children>
+        </HBox>
+
+
+
+        <!-- lowest level contianing the last 2 buttons -->
+        <HBox alignment="CENTER" spacing="100">
+            <children>
+                <!-- buy submit button -->
+                <Button fx:id="submitButton" text="Submit"  onAction="#onClickSubmit"/>
+                <!-- clear Button -->
+                <Button fx:id="clearButton" text="Clear" onAction="#onClickClear"/>
+            </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+        </HBox>
+
+
+    </children>
+   <padding>
+      <Insets bottom="10.0" left="15.0" right="15.0" top="30.0" />
+   </padding>
+
+</VBox>
